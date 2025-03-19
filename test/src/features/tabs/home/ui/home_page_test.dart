@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:samples/main.dart';
+import 'package:samples/src/features/tabs/home/home.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
+  testWidgets('HomePage should increments count', (tester) async {
+    await tester.pumpWidget(const HomePage());
 
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
