@@ -15,7 +15,7 @@ class L10nEn extends L10n {
   String get language => 'Language';
 
   @override
-  String get title => 'intl';
+  String get title => 'Intl';
 
   @override
   String get done => 'done';

@@ -112,7 +112,7 @@ abstract class L10n {
   /// title
   ///
   /// In en, this message translates to:
-  /// **'intl'**
+  /// **'Intl'**
   String get title;
 
   /// done
