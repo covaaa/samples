@@ -12,6 +12,6 @@ Each demo app is managed in a separate branch on GitHub. You can access each bra
 
 * [`hive`](https://github.com/covaaa/samples/tree/hive) - A todo app that implements data persistence using the [`hive_ce`](https://pub.dev/packages/hive_ce) package.
 
-* [`intl`](https://github.com/cova/samples/tree/intl) - A counter app that implements internationalization and localization using the [`intl`](https://pub.dev/packages/intl) package.
+* [`intl`](https://github.com/covaaa/samples/tree/intl) - A counter app that implements internationalization and localization using the [`intl`](https://pub.dev/packages/intl) package.
 
 * [`notifications`](https://github.com/covaaa/samples/tree/notifications) - A demo app that implements local notifications using the [`flutter_local_notifications`](https://pub.dev/packages/flutter_local_notifications) package.
