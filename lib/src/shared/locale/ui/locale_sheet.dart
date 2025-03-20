@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:samples/src/shared/l10n/l10n.dart';
 import 'package:samples/src/shared/locale/domain/locale.dart';
 import 'package:samples/src/shared/locale/state/read.dart';
