@@ -9,6 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'samples',
+      debugShowCheckedModeBanner: false,
       theme: SamplesThemeData.light(ColorSeed.deepPurple.color),
       darkTheme: SamplesThemeData.dark(ColorSeed.deepPurple.color),
       home: const HomePage(),
