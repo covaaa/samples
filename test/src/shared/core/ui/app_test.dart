@@ -4,7 +4,7 @@ import 'package:samples/src/shared/core/core.dart';
 import '../../../../extensions/pump.dart';
 
 void main() {
-  testWidgets('App should render InfoPage', (tester) async {
+  testWidgets('app should render info page', (tester) async {
     await tester.pumpApp(scaffold: false, child: const App());
     expect(find.byType(InfoPage), findsOneWidget);
   });

@@ -4,7 +4,7 @@ import 'package:samples/src/features/tabs/home/home.dart';
 import '../../../../../extensions/pump.dart';
 
 void main() {
-  testWidgets('HomePage should increments count', (tester) async {
+  testWidgets('home page should increment counts', (tester) async {
     await tester.pumpApp(child: const HomePage());
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);

@@ -20,33 +20,35 @@ void main() {
 
   Future<PackageInfo> mockFetchInfo() => mockInfoService.fetchInfo();
 
-  testWidgets('InfoPage should render data', (tester) async {
-    when(mockFetchInfo).thenAnswer((_) async => packageInfo);
-    await tester.pumpApp(
-      scaffold: false,
-      overrides: [infoServiceProvider.overrideWithValue(mockInfoService)],
-      child: const InfoPage(),
-    );
-    expect(find.byType(InfoPage), findsOneWidget);
-    expect(find.byType(CustomScrollView), findsOneWidget);
-    expect(find.byType(SliverAppBar), findsOneWidget);
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
-    await tester.pump();
-    expect(find.byType(SliverList), findsOneWidget);
-  });
+  group('info page', () {
+    testWidgets('should render data', (tester) async {
+      when(mockFetchInfo).thenAnswer((_) async => packageInfo);
+      await tester.pumpApp(
+        scaffold: false,
+        overrides: [infoServiceProvider.overrideWithValue(mockInfoService)],
+        child: const InfoPage(),
+      );
+      expect(find.byType(InfoPage), findsOneWidget);
+      expect(find.byType(CustomScrollView), findsOneWidget);
+      expect(find.byType(SliverAppBar), findsOneWidget);
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      await tester.pump();
+      expect(find.byType(SliverList), findsOneWidget);
+    });
 
-  testWidgets('InfoPage should render error', (tester) async {
-    when(mockFetchInfo).thenAnswer((_) async => throw Error());
-    await tester.pumpApp(
-      scaffold: false,
-      overrides: [infoServiceProvider.overrideWithValue(mockInfoService)],
-      child: const InfoPage(),
-    );
-    expect(find.byType(InfoPage), findsOneWidget);
-    expect(find.byType(CustomScrollView), findsOneWidget);
-    expect(find.byType(SliverAppBar), findsOneWidget);
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
-    await tester.pump();
-    expect(find.textContaining('Error: '), findsOneWidget);
+    testWidgets('should render error', (tester) async {
+      when(mockFetchInfo).thenAnswer((_) async => throw Error());
+      await tester.pumpApp(
+        scaffold: false,
+        overrides: [infoServiceProvider.overrideWithValue(mockInfoService)],
+        child: const InfoPage(),
+      );
+      expect(find.byType(InfoPage), findsOneWidget);
+      expect(find.byType(CustomScrollView), findsOneWidget);
+      expect(find.byType(SliverAppBar), findsOneWidget);
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      await tester.pump();
+      expect(find.textContaining('Error: '), findsOneWidget);
+    });
   });
 }

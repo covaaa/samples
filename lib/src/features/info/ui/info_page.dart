@@ -11,7 +11,7 @@ class InfoPage extends ConsumerWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar.large(title: Text('flavors')),
+          const SliverAppBar.large(title: Text('Flavors')),
           switch (ref.watch(readInfoProvider)) {
             AsyncValue<PackageInfo>(:final valueOrNull?) => SliverList(
               delegate: SliverChildListDelegate.fixed([
