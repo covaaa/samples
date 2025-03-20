@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samples/src/shared/l10n/l10n.dart';
 import 'package:samples/src/shared/theme/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,10 +16,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar.large(title: Text('Samples')),
+          SliverAppBar.large(title: Text(l10n.title)),
           SliverToBoxAdapter(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -27,8 +29,11 @@ class _HomePageState extends State<HomePage> {
                 // * expandedHeight = 152.0;
                 // * expandedTitlePadding.bottom = 28.0;
                 const SizedBox(height: 152 + 28),
-                const Text('You have pushed the button this many times:'),
-                Text('$_counter', style: context.headlineMedium),
+                Text(l10n.increment_title),
+                Text(
+                  '$_counter ${l10n.increment_suffix}',
+                  style: context.headlineMedium,
+                ),
               ],
             ),
           ),
@@ -36,7 +41,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        tooltip: l10n.increment,
         child: const Icon(Icons.add),
       ),
     );

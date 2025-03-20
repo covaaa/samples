@@ -1,0 +1,19 @@
+{
+  "@@locale": "en",
+  "title": "intl",
+  "@title": {
+    "description": "title"
+  },
+  "increment": "Increment",
+  "@increment": {
+    "description": "increment"
+  },
+  "increment_title": "You have pushed the button this many times:",
+  "@increment_title": {
+    "description": "increment title"
+  },
+  "increment_suffix": "times",
+  "@increment_suffix": {
+    "description": "increment suffix"
+  }
+}
