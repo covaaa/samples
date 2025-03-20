@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:samples/src/shared/l10n/l10n.dart';
 import 'package:samples/src/shared/locale/domain/locale.dart';
 import 'package:samples/src/shared/locale/state/read.dart';
+import 'package:samples/src/shared/locale/ui/x_locale.dart';
 import 'package:samples/src/shared/theme/theme.dart';
 
-class LocaleSheet extends ConsumerStatefulWidget {
+class LocaleSheet extends HookConsumerWidget {
   const LocaleSheet(this.locale, {super.key});
 
-  final Locale locale;
+  final SealedLocale locale;
 
   static Future<void> show(BuildContext context) {
     return showModalBottomSheet<void>(
@@ -18,27 +20,16 @@ class LocaleSheet extends ConsumerStatefulWidget {
       useRootNavigator: true,
       isScrollControlled: true,
       backgroundColor: context.surface,
-      builder: (context) => LocaleSheet(Localizations.localeOf(context)),
+      builder: (context) => LocaleSheet(context.locale),
     );
   }
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _LocaleSheetState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final group = useState(locale);
 
-class _LocaleSheetState extends ConsumerState<LocaleSheet> {
-  late SealedLocale locale;
-
-  @override
-  void initState() {
-    super.initState();
-    locale = SealedLocale(widget.locale);
-  }
-
-  @override
-  Widget build(BuildContext context) {
     void onChanged(SealedLocale? newLocale) {
-      return setState(() => locale = newLocale!);
+      group.value = newLocale ?? group.value;
     }
 
     return Scaffold(
@@ -46,19 +37,19 @@ class _LocaleSheetState extends ConsumerState<LocaleSheet> {
         slivers: [
           SliverAppBar.large(
             pinned: false,
-            title: Text(lookupL10n(locale).language),
+            title: Text(lookupL10n(group.value).language),
           ),
           SliverList(
             delegate: SliverChildListDelegate.fixed([
               RadioListTile<SealedLocale>(
                 onChanged: onChanged,
-                groupValue: locale,
+                groupValue: group.value,
                 value: const LocaleEn(),
                 title: Text(lookupL10n(const LocaleEn()).locale),
               ),
               RadioListTile<SealedLocale>(
                 onChanged: onChanged,
-                groupValue: locale,
+                groupValue: group.value,
                 value: const LocaleJa(),
                 title: Text(lookupL10n(const LocaleJa()).locale),
               ),
@@ -73,13 +64,13 @@ class _LocaleSheetState extends ConsumerState<LocaleSheet> {
             width: double.infinity,
             child: FilledButton(
               onPressed: () async {
-                final _ = switch (locale) {
+                final _ = switch (group.value) {
                   LocaleEn() => ref.read(readLocaleProvider.notifier).syncEn(),
                   LocaleJa() => ref.read(readLocaleProvider.notifier).syncJa(),
                 };
                 await Navigator.maybePop(context);
               },
-              child: Text(lookupL10n(locale).done),
+              child: Text(lookupL10n(group.value).done),
             ),
           ),
         ),
