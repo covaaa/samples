@@ -1,6 +1,9 @@
 {
   "@@locale": "ja",
+  "locale": "日本語",
+  "language": "言語",
   "title": "国際化",
+  "done": "完了",
   "increment": "増やす",
   "increment_title": "何回ボタンを押したかというと...",
   "increment_suffix": "回"

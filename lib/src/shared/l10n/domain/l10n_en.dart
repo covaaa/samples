@@ -9,7 +9,16 @@ class L10nEn extends L10n {
   L10nEn([String locale = 'en']) : super(locale);
 
   @override
+  String get locale => 'English';
+
+  @override
+  String get language => 'Language';
+
+  @override
   String get title => 'intl';
+
+  @override
+  String get done => 'done';
 
   @override
   String get increment => 'Increment';

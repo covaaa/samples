@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:samples/src/shared/l10n/l10n.dart';
+import 'package:samples/src/shared/locale/locale.dart';
 import 'package:samples/src/shared/theme/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,7 +21,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar.large(title: Text(l10n.title)),
+          SliverAppBar.large(
+            title: Text(l10n.title),
+            actions: [
+              IconButton(
+                onPressed: () => LocaleSheet.show(context),
+                icon: const Icon(Icons.translate_outlined),
+              ),
+            ],
+          ),
           SliverToBoxAdapter(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -9,7 +9,16 @@ class L10nJa extends L10n {
   L10nJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get locale => '日本語';
+
+  @override
+  String get language => '言語';
+
+  @override
   String get title => '国際化';
+
+  @override
+  String get done => '完了';
 
   @override
   String get increment => '増やす';

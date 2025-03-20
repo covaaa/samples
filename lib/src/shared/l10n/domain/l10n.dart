@@ -97,11 +97,29 @@ abstract class L10n {
     Locale('ja'),
   ];
 
+  /// locale
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get locale;
+
+  /// language
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
   /// title
   ///
   /// In en, this message translates to:
   /// **'intl'**
   String get title;
+
+  /// done
+  ///
+  /// In en, this message translates to:
+  /// **'done'**
+  String get done;
 
   /// increment
   ///

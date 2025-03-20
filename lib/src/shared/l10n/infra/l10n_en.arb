@@ -1,8 +1,20 @@
 {
   "@@locale": "en",
+  "locale": "English",
+  "@locale": {
+    "description": "locale"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "language"
+  },
   "title": "intl",
   "@title": {
     "description": "title"
+  },
+  "done": "done",
+  "@done": {
+    "description": "done"
   },
   "increment": "Increment",
   "@increment": {
