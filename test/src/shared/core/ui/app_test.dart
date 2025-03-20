@@ -5,7 +5,7 @@ import '../../../../extensions/pump.dart';
 
 void main() {
   testWidgets('App should render HomePage', (tester) async {
-    await tester.pumpMaterialApp(scaffold: false, child: const App());
+    await tester.pumpApp(scaffold: false, child: const App());
     expect(find.byType(HomePage), findsOneWidget);
   });
 }
