@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:samples/src/shared/core/core.dart';
 
 void main() {
@@ -10,7 +11,9 @@ void main() {
   return runZonedGuarded<void>(
     () {
       WidgetsFlutterBinding.ensureInitialized();
-      return runApp(const App());
+      return runApp(
+        const ProviderScope(observers: [RiverpodObserver()], child: App()),
+      );
     },
     (error, stackTrace) {
       log('$error', stackTrace: stackTrace);
