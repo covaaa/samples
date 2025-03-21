@@ -1,5 +1,11 @@
 targets:
   $default:
+    sources:
+      - lib/**
+      - 'tool/**'
+      - pubspec.yaml
+      - lib/$lib$
+      - $package$
     builders:
       source_gen|combining_builder:
         generate_for:
@@ -9,3 +15,22 @@ targets:
           preamble: // coverage:ignore-file
           ignore_for_file:
             - duplicate_ignore
+      drift_dev:
+        options:
+          store_date_time_values_as_text: true
+          use_sql_column_name_as_json_key: true
+          databases:
+            store: lib/src/shared/drift/store/infra/store.dart
+          # lib/src/shared/drift/schemas/store/drift_scheme_v1.dart...
+          schema_dir: lib/src/shared/drift/schemas/
+          # test/src/shared/drift/store/migration_test.dart...
+          test_dir: test/src/shared/drift/
+          # Driftはコンパイル時のSQLクエリを解析するために
+          # 利用可能なsqlite3の機能を知る必要がある
+          # Driftは`sqlite3_flutter_libs`に依存してるので
+          # 以下を指定すればfts5が有効化された最新バージョンを使用できる
+          sql:
+            dialect: sqlite
+            options:
+              version: '3.38'
+              modules: [fts5]

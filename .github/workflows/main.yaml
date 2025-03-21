@@ -11,3 +11,6 @@ jobs:
     with:
       coverage_excludes: ""
       flutter_version: ""
+      setup: |
+        sudo apt update
+        sudo apt install -y sqlite3 libsqlite3-dev
