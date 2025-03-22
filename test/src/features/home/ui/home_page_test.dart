@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:samples/src/features/tabs/home/home.dart';
-import '../../../../../extensions/pump.dart';
+import 'package:samples/src/features/home/home.dart';
+import '../../../../extensions/pump.dart';
 
 void main() {
   testWidgets('home page should increment counts', (tester) async {

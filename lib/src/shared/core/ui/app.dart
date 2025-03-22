@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:samples/src/features/tabs/home/home.dart';
+import 'package:samples/src/features/home/home.dart';
 import 'package:samples/src/shared/theme/theme.dart';
 
 class App extends StatelessWidget {
