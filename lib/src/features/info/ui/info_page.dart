@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:samples/src/features/info/state/read.dart';
+import 'package:samples/src/shared/core/core.dart';
 
 class InfoPage extends ConsumerWidget {
   const InfoPage({super.key});
@@ -48,10 +49,12 @@ class InfoPage extends ConsumerWidget {
               ]),
             ),
             AsyncValue(:final error?) => SliverToBoxAdapter(
-              child: Text('Error: $error'),
+              child: CustomScrolledCenter(children: [Text('Error: $error')]),
             ),
             AsyncValue<PackageInfo>() => const SliverToBoxAdapter(
-              child: CircularProgressIndicator.adaptive(),
+              child: CustomScrolledCenter(
+                children: [CircularProgressIndicator.adaptive()],
+              ),
             ),
           },
         ],
