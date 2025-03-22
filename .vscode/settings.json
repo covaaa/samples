@@ -1,3 +1,16 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.29.2"
+  "dart.flutterSdkPath": ".fvm/versions/3.29.2",
+  "explorerExclude.backup": {},
+  "files.exclude": {
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": true,
+    "**/.DS_Store": true,
+    "**/.dart_tool": true,
+    "**/.fvm": true,
+    "**/.git": true,
+    "**/.gitkeep": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/Thumbs.db": true
+  }
 }
