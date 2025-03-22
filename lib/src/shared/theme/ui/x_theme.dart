@@ -7,5 +7,8 @@ extension XTheme on BuildContext {
   TextStyle? get titleMedium => textTheme.titleMedium;
   TextStyle? get labelMedium => textTheme.labelMedium;
   TextStyle? get labelMediumHint => labelMedium?.copyWith(color: hintColor);
+  ColorScheme get colorScheme => theme.colorScheme;
   Color get hintColor => theme.hintColor;
+  Color get primary => colorScheme.primary;
+  Color get surface => colorScheme.surface;
 }
