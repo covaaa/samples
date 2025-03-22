@@ -8,12 +8,18 @@ extension type const SamplesThemeData._(ThemeData _) implements ThemeData {
     return SamplesThemeData._m3(color, Brightness.dark);
   }
   factory SamplesThemeData._m3(Color color, Brightness brightness) {
+    final theme = ThemeData(
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(
+        brightness: brightness,
+        seedColor: color,
+      ),
+    );
     return SamplesThemeData._(
-      ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          brightness: brightness,
-          seedColor: color,
+      theme.copyWith(
+        cardTheme: const CardTheme(
+          clipBehavior: Clip.antiAlias,
+          margin: EdgeInsets.symmetric(vertical: 4),
         ),
       ),
     );

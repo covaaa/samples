@@ -44,6 +44,16 @@ final class Fakes {
     );
   }
 
+  Todo todo4() {
+    return Todo(
+      id: 4,
+      title: 'new todo',
+      due: DateTime(2030, 12, 31),
+      createdAt: date,
+      updatedAt: date,
+    );
+  }
+
   TodosCompanion todoCompanion4() {
     return TodosCompanion(
       id: const Value(4),
