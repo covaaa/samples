@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samples/src/shared/core/core.dart';
 import 'package:samples/src/shared/l10n/l10n.dart';
 import 'package:samples/src/shared/locale/locale.dart';
 import 'package:samples/src/shared/theme/theme.dart';
@@ -31,13 +32,8 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           SliverToBoxAdapter(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: CustomScrolledCenter(
               children: [
-                // * _LargeScrollUnderFlexibleConfig at material/app_bar.dart
-                // * expandedHeight = 152.0;
-                // * expandedTitlePadding.bottom = 28.0;
-                const SizedBox(height: 152 + 28),
                 Text(l10n.increment_title),
                 Text(
                   '$_counter ${l10n.increment_suffix}',
