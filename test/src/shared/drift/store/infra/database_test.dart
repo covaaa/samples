@@ -6,13 +6,13 @@ import 'package:samples/src/shared/drift/store/store.dart';
 import '../../../../../extensions/fakes.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
   late Fakes fakes;
   late ProviderContainer container;
 
   setUp(() {
-    TestWidgetsFlutterBinding.ensureInitialized();
     fakes = const Fakes();
-    PathProviderPlatform.instance = fakes.platform;
+    PathProviderPlatform.instance = fakes.platform();
     container = ProviderContainer();
   });
 
