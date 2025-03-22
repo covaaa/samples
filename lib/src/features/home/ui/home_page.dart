@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samples/src/shared/core/core.dart';
 import 'package:samples/src/shared/theme/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,13 +21,8 @@ class _HomePageState extends State<HomePage> {
         slivers: [
           const SliverAppBar.large(title: Text('Samples')),
           SliverToBoxAdapter(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: CustomScrolledCenter(
               children: [
-                // * _LargeScrollUnderFlexibleConfig at material/app_bar.dart
-                // * expandedHeight = 152.0;
-                // * expandedTitlePadding.bottom = 28.0;
-                const SizedBox(height: 152 + 28),
                 const Text('You have pushed the button this many times:'),
                 Text('$_counter', style: context.headlineMedium),
               ],
