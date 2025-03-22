@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:samples/src/features/tabs/home/home.dart';
+import 'package:samples/src/features/home/home.dart';
 import 'package:samples/src/shared/locale/locale.dart';
-import '../../../../../extensions/pump.dart';
+import '../../../../extensions/pump.dart';
 
 void main() {
   group('home page', () {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:samples/src/features/tabs/home/home.dart';
+import 'package:samples/src/features/home/home.dart';
 import 'package:samples/src/shared/l10n/l10n.dart';
 import 'package:samples/src/shared/locale/locale.dart';
 import 'package:samples/src/shared/theme/theme.dart';
