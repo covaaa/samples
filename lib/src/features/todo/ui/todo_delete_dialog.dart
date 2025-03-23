@@ -39,9 +39,7 @@ class TodoDeleteDialog extends ConsumerWidget {
           child: const Text('cancel'),
         ),
         TextButton(
-          onPressed: () {
-            ref.read(deleteTodoProvider.notifier).run(todo.toCompanion(false));
-          },
+          onPressed: () => ref.read(deleteTodoProvider.notifier).run(todo),
           child: const Text('delete'),
         ),
       ],

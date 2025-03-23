@@ -27,9 +27,7 @@ void main() {
     mockTodoService = MockTodoService();
   });
 
-  Future<void> mockUpdateTodo() {
-    return mockTodoService.updateTodo(newTodo.toCompanion(false));
-  }
+  Future<void> mockUpdateTodo() => mockTodoService.updateTodo(newTodo);
 
   group('todo update sheet', () {
     testWidgets('should update data', (tester) async {

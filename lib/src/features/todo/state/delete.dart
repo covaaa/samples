@@ -14,7 +14,5 @@ class DeleteTodo extends _$DeleteTodo with Load {
     return const Action.none();
   }
 
-  Future<void> run(TodosCompanion todo) {
-    return super.load(() => _service.deleteTodo(todo));
-  }
+  Future<void> run(Todo todo) => super.load(() => _service.deleteTodo(todo));
 }

@@ -14,7 +14,5 @@ class UpdateTodo extends _$UpdateTodo with Load {
     return const Action.none();
   }
 
-  Future<void> run(TodosCompanion todo) {
-    return super.load(() => _service.updateTodo(todo));
-  }
+  Future<void> run(Todo todo) => super.load(() => _service.updateTodo(todo));
 }

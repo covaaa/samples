@@ -9,24 +9,22 @@ import '../infra/todo_service_test.dart';
 
 void main() {
   late Fakes fakes;
-  late Todo todo1;
+  late Todo todo;
   late MockTodoService mockTodoService;
 
   setUp(() {
     fakes = const Fakes();
-    todo1 = fakes.todo1();
+    todo = fakes.todo1();
     mockTodoService = MockTodoService();
   });
 
-  Future<bool> mockDeleteTodo() {
-    return mockTodoService.deleteTodo(todo1.toCompanion(false));
-  }
+  Future<bool> mockDeleteTodo() => mockTodoService.deleteTodo(todo);
 
   group('todo delete dialog', () {
     testWidgets('should delete cancel', (tester) async {
       await tester.pumpApp(
         overrides: [todoServiceProvider.overrideWithValue(mockTodoService)],
-        child: TodoDeleteDialog(todo1),
+        child: TodoDeleteDialog(todo),
       );
       await tester.tap(find.text('cancel'));
       verifyNever(mockDeleteTodo);
@@ -42,7 +40,7 @@ void main() {
       });
       await tester.pumpApp(
         overrides: [todoServiceProvider.overrideWithValue(mockTodoService)],
-        child: TodoDeleteDialog(todo1),
+        child: TodoDeleteDialog(todo),
       );
       await tester.tap(find.text('delete'));
       verify(mockDeleteTodo).called(1);
@@ -56,7 +54,7 @@ void main() {
       when(mockDeleteTodo).thenThrow(Exception());
       await tester.pumpApp(
         overrides: [todoServiceProvider.overrideWithValue(mockTodoService)],
-        child: TodoDeleteDialog(todo1),
+        child: TodoDeleteDialog(todo),
       );
       await tester.tap(find.text('delete'));
       verify(mockDeleteTodo).called(1);

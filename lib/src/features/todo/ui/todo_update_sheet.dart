@@ -105,7 +105,7 @@ class TodoUpdateSheet extends HookConsumerWidget {
                 );
                 return switch (newTodo == todo) {
                   true => Navigator.pop(context),
-                  false => updater.run(newTodo.toCompanion(false)),
+                  false => updater.run(newTodo),
                 };
               },
               icon: const Icon(Icons.done_outlined),

@@ -10,7 +10,7 @@ class MockTodoService extends Mock implements TodoService {}
 
 void main() {
   late Fakes fakes;
-  late TodosCompanion todoCompanion;
+  late Todo todo;
   late List<Todo> todos;
   late QueryExecutor connection;
   late ProviderContainer container;
@@ -18,7 +18,7 @@ void main() {
 
   setUp(() {
     fakes = const Fakes();
-    todoCompanion = fakes.todoCompanion4();
+    todo = fakes.todo4();
     todos = fakes.todos();
     connection = fakes.connection();
     container = ProviderContainer(
@@ -34,22 +34,20 @@ void main() {
 
   group('todo service', () {
     test('should create todo', () {
-      expect(service.createTodo(todoCompanion), completion(4));
+      expect(service.createTodo(todo), completion(4));
     });
 
     test('should update todo', () async {
-      await service.createTodo(todoCompanion);
+      await service.createTodo(todo);
       expect(
-        service.updateTodo(
-          todoCompanion.copyWith(title: const Value('updated todo')),
-        ),
+        service.updateTodo(todo.copyWith(title: 'updated todo')),
         completion(isA<void>()),
       );
     });
 
     test('should delete todo', () async {
-      await service.createTodo(todoCompanion);
-      expect(service.deleteTodo(todoCompanion), completion(isTrue));
+      await service.createTodo(todo);
+      expect(service.deleteTodo(todo), completion(isTrue));
     });
 
     test('should emits todos', () {

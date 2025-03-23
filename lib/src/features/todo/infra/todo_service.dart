@@ -16,11 +16,11 @@ class TodoService {
 
   $DriftStoreManager get _managers => store.managers;
 
-  Future<int> createTodo(TodosCompanion todo) => _todos.insertOne(todo);
+  Future<int> createTodo(Todo todo) => _todos.insertOne(todo);
 
-  Future<void> updateTodo(TodosCompanion todo) => _todos.replaceOne(todo);
+  Future<void> updateTodo(Todo todo) => _todos.replaceOne(todo);
 
-  Future<bool> deleteTodo(TodosCompanion todo) => _todos.deleteOne(todo);
+  Future<bool> deleteTodo(Todo todo) => _todos.deleteOne(todo);
 
   Stream<List<Todo>> emitsTodos() => _managers.todos.watch();
 }
