@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samples/src/features/todo/ui/todo_update_sheet.dart';
 import 'package:samples/src/shared/core/core.dart';
 import 'package:samples/src/shared/drift/store/store.dart';
 import 'package:samples/src/shared/theme/theme.dart';
@@ -24,6 +25,7 @@ class TodoEditSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ListTile(
+            onTap: () => TodoUpdateSheet.show(context, todo: todo),
             leading: IconButton(
               onPressed: null,
               icon: Icon(Icons.edit_outlined, color: context.primary),

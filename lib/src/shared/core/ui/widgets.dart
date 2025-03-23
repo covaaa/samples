@@ -17,3 +17,18 @@ class CustomScrolledCenter extends StatelessWidget {
     ],
   );
 }
+
+class CircularProgressDialog extends StatelessWidget {
+  const CircularProgressDialog({super.key});
+
+  static Future<void> show(BuildContext context) => showAdaptiveDialog<void>(
+    barrierDismissible: false,
+    context: context,
+    builder: (context) => const CircularProgressDialog(),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: CircularProgressIndicator.adaptive());
+  }
+}
