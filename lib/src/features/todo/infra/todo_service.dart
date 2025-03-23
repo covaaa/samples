@@ -16,7 +16,7 @@ class TodoService {
 
   $DriftStoreManager get _managers => store.managers;
 
-  Future<int> createTodo(Todo todo) => _todos.insertOne(todo);
+  Future<int> createTodo(TodosCompanion todo) => _todos.insertOne(todo);
 
   Future<void> updateTodo(Todo todo) => _todos.replaceOne(todo);
 

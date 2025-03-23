@@ -53,5 +53,17 @@ void main() {
       await tester.pump();
       expect(find.textContaining('Error: '), findsOneWidget);
     });
+
+    testWidgets('should show todo create sheet', (tester) async {
+      when(mockEmitsTodos).thenAnswer((i) => Stream.value(todos));
+      await tester.pumpApp(
+        scaffold: false,
+        overrides: [todoServiceProvider.overrideWithValue(mockTodoService)],
+        child: const TodoPage(),
+      );
+      await tester.tap(find.byType(FloatingActionButton));
+      await tester.pumpAndSettle();
+      expect(find.byType(TodoCreateSheet), findsOneWidget);
+    });
   });
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:samples/src/features/todo/state/read.dart';
 import 'package:samples/src/features/todo/ui/todo_card.dart';
+import 'package:samples/src/features/todo/ui/todo_create_sheet.dart';
 import 'package:samples/src/shared/core/core.dart';
 import 'package:samples/src/shared/drift/store/store.dart';
 import 'package:samples/src/shared/theme/theme.dart';
@@ -36,6 +37,10 @@ class TodoPage extends ConsumerWidget {
             ),
           },
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => TodoCreateSheet.show(context),
+        child: const Icon(Icons.add_outlined),
       ),
     );
   }

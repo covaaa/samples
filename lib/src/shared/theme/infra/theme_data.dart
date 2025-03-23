@@ -18,7 +18,7 @@ extension type const SamplesThemeData._(ThemeData _) implements ThemeData {
     return SamplesThemeData._(
       theme.copyWith(
         inputDecorationTheme: const InputDecorationTheme(
-          border: OutlineInputBorder(),
+          border: InputBorder.none,
         ),
         cardTheme: const CardTheme(
           clipBehavior: Clip.antiAlias,

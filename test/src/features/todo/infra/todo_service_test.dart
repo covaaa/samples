@@ -34,11 +34,11 @@ void main() {
 
   group('todo service', () {
     test('should create todo', () {
-      expect(service.createTodo(todo), completion(4));
+      expect(service.createTodo(todo.toCompanion(false)), completion(4));
     });
 
     test('should update todo', () async {
-      await service.createTodo(todo);
+      await service.createTodo(todo.toCompanion(false));
       expect(
         service.updateTodo(todo.copyWith(title: 'updated todo')),
         completion(isA<void>()),
@@ -46,7 +46,7 @@ void main() {
     });
 
     test('should delete todo', () async {
-      await service.createTodo(todo);
+      await service.createTodo(todo.toCompanion(false));
       expect(service.deleteTodo(todo), completion(isTrue));
     });
 

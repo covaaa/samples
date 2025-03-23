@@ -3,32 +3,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:samples/src/features/todo/state/update.dart';
+import 'package:samples/src/features/todo/state/create.dart';
 import 'package:samples/src/shared/core/core.dart';
 import 'package:samples/src/shared/drift/store/store.dart';
 import 'package:samples/src/shared/theme/theme.dart';
 
-class TodoUpdateSheet extends HookConsumerWidget {
-  const TodoUpdateSheet(this.todo, {super.key});
+class TodoCreateSheet extends HookConsumerWidget {
+  const TodoCreateSheet({super.key});
 
-  static Future<void> show(BuildContext context, {required Todo todo}) {
+  static Future<void> show(BuildContext context) {
     return showModalBottomSheet<void>(
       context: context,
       useSafeArea: true,
       showDragHandle: true,
       isScrollControlled: true,
       backgroundColor: context.surface,
-      builder: (context) => TodoUpdateSheet(todo),
+      builder: (context) => const TodoCreateSheet(),
     );
   }
-
-  final Todo todo;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final yMMMd = DateFormat.yMMMd();
-    final controller = useTextEditingController(text: todo.title);
-    final due = useState(todo.due);
+    final controller = useTextEditingController();
+    final due = useState<DateTime?>(null);
 
     void syncTitle() => controller.text;
 
@@ -42,7 +40,7 @@ class TodoUpdateSheet extends HookConsumerWidget {
     useEffect(effect, [controller]);
 
     ref.listen(
-      updateTodoProvider,
+      createTodoProvider,
       (previous, next) => switch (next) {
         ActionNone() => null,
         ActionLoading() => CircularProgressDialog.show(context),
@@ -54,14 +52,14 @@ class TodoUpdateSheet extends HookConsumerWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const SliverAppBar.large(pinned: false, title: Text('Edit Todo')),
+          const SliverAppBar.large(pinned: false, title: Text('New Todo')),
           SliverToBoxAdapter(
             child: Column(
               children: [
                 ListTile(
                   onTap: () async {
                     final now = DateTime.now();
-                    final initialDate = todo.due ?? now;
+                    final initialDate = DateTime.now();
                     final selectedDate = await showDatePicker(
                       context: context,
                       initialDate: initialDate,
@@ -99,16 +97,15 @@ class TodoUpdateSheet extends HookConsumerWidget {
           child: SizedBox(
             width: double.infinity,
             child: FilledButton.icon(
-              onPressed: () {
-                final updater = ref.read(updateTodoProvider.notifier);
-                final newTodo = todo.copyWith(
-                  title: controller.text,
+              onPressed: () async {
+                final now = DateTime.now();
+                final newTodo = TodosCompanion(
+                  title: Value(controller.text),
                   due: Value(due.value),
+                  createdAt: Value(now),
+                  updatedAt: Value(now),
                 );
-                return switch (newTodo == todo) {
-                  true => Navigator.pop(context),
-                  false => updater.run(newTodo),
-                };
+                return ref.read(createTodoProvider.notifier).run(newTodo);
               },
               icon: const Icon(Icons.done_outlined),
               label: const Text('done'),
