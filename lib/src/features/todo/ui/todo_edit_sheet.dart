@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samples/src/features/todo/ui/todo_delete_dialog.dart';
 import 'package:samples/src/features/todo/ui/todo_update_sheet.dart';
 import 'package:samples/src/shared/core/core.dart';
 import 'package:samples/src/shared/drift/store/store.dart';
@@ -33,6 +34,7 @@ class TodoEditSheet extends StatelessWidget {
             title: const Text('edit todo'),
           ),
           ListTile(
+            onTap: () => TodoDeleteDialog.show(context, todo: todo),
             leading: IconButton(
               onPressed: null,
               icon: Icon(Icons.delete_outline_outlined, color: context.primary),
