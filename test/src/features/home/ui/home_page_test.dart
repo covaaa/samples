@@ -5,7 +5,7 @@ import '../../../../extensions/pump.dart';
 
 void main() {
   testWidgets('home page should increment counts', (tester) async {
-    await tester.pumpMaterialApp(child: const HomePage());
+    await tester.pumpApp(child: const HomePage());
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
     await tester.tap(find.byIcon(Icons.add));
