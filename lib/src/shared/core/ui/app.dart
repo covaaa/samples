@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:samples/src/features/home/home.dart';
+import 'package:samples/src/features/fln/fln.dart';
 import 'package:samples/src/shared/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -8,11 +8,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Samples',
+      title: 'Notifications',
       debugShowCheckedModeBanner: false,
       theme: SamplesThemeData.light(ColorSeed.deepPurple.color),
       darkTheme: SamplesThemeData.dark(ColorSeed.deepPurple.color),
-      home: const HomePage(),
+      home: const FLNPage(),
     );
   }
 }

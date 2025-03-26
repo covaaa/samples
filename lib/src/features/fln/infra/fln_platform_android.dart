@@ -4,7 +4,7 @@ typedef _AndroidPlugin = AndroidFlutterLocalNotificationsPlugin;
 
 final class FLNPlatformAndroid extends FLNPlatformMobile {
   factory FLNPlatformAndroid(FlutterLocalNotificationsPlugin plugin) {
-    const settings = AndroidInitializationSettings('ic_launcher');
+    const settings = AndroidInitializationSettings('@mipmap/ic_launcher');
     return FLNPlatformAndroid._(
       plugin.resolvePlatformSpecificImplementation<_AndroidPlugin>()!,
       settings: settings,
