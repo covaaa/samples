@@ -18,10 +18,9 @@ final readLocaleProvider =
     AutoDisposeNotifierProvider<ReadLocale, SealedLocale?>.internal(
       ReadLocale.new,
       name: r'readLocaleProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$readLocaleHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$readLocaleHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
