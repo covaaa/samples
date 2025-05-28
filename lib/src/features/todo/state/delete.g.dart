@@ -18,10 +18,9 @@ final deleteTodoProvider =
     AutoDisposeNotifierProvider<DeleteTodo, Action>.internal(
       DeleteTodo.new,
       name: r'deleteTodoProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$deleteTodoHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$deleteTodoHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

@@ -20,7 +20,7 @@ extension type const SamplesThemeData._(ThemeData _) implements ThemeData {
         inputDecorationTheme: const InputDecorationTheme(
           border: InputBorder.none,
         ),
-        cardTheme: const CardTheme(
+        cardTheme: const CardThemeData(
           clipBehavior: Clip.antiAlias,
           margin: EdgeInsets.symmetric(vertical: 4),
         ),

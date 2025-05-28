@@ -18,10 +18,9 @@ final createTodoProvider =
     AutoDisposeNotifierProvider<CreateTodo, Action>.internal(
       CreateTodo.new,
       name: r'createTodoProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$createTodoHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$createTodoHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

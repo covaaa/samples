@@ -17,8 +17,9 @@ String _$todoServiceHash() => r'682f72d612276b95de498bedfc2ea1368b7d9390';
 final todoServiceProvider = AutoDisposeProvider<TodoService>.internal(
   todoService,
   name: r'todoServiceProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$todoServiceHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$todoServiceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

@@ -17,8 +17,9 @@ String _$readTodosHash() => r'eafc74736238a890d805d7bac0e34fd6c8e4a232';
 final readTodosProvider = AutoDisposeStreamProvider<List<Todo>>.internal(
   readTodos,
   name: r'readTodosProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$readTodosHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$readTodosHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
