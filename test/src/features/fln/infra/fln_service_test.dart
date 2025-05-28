@@ -20,10 +20,9 @@ void main() {
   late FLNService service;
 
   setUp(() {
-    binding =
-        TestDefaultBinaryMessengerBinding.instance
-          ..setUpFakeTimezone()
-          ..setUpFakeLocalNotifications();
+    binding = TestDefaultBinaryMessengerBinding.instance
+      ..setUpFakeTimezone()
+      ..setUpFakeLocalNotifications();
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     AndroidFlutterLocalNotificationsPlugin.registerWith();
     initializeTimeZones();

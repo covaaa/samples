@@ -12,9 +12,8 @@ void main() {
   late ProviderContainer container;
 
   setUp(() {
-    binding =
-        TestDefaultBinaryMessengerBinding.instance
-          ..setUpFakeLocalNotifications();
+    binding = TestDefaultBinaryMessengerBinding.instance
+      ..setUpFakeLocalNotifications();
     debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
     MacOSFlutterLocalNotificationsPlugin.registerWith();
     initializeTimeZones();

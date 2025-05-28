@@ -18,10 +18,9 @@ final createFLNProvider =
     AutoDisposeAsyncNotifierProvider<CreateFLN, void>.internal(
       CreateFLN.new,
       name: r'createFLNProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$createFLNHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$createFLNHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

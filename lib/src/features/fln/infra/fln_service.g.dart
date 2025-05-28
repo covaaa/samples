@@ -17,8 +17,9 @@ String _$flnServiceHash() => r'bd0bba69b34e560be902c68fab10a94453e84e71';
 final flnServiceProvider = AutoDisposeProvider<FLNService>.internal(
   flnService,
   name: r'flnServiceProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$flnServiceHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$flnServiceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

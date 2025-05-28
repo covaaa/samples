@@ -17,8 +17,9 @@ String _$flnPlatformHash() => r'583c96d0cebc05e37b7a03bbec267ade936baa1d';
 final flnPlatformProvider = AutoDisposeProvider<FLNPlatform>.internal(
   flnPlatform,
   name: r'flnPlatformProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$flnPlatformHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$flnPlatformHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

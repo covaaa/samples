@@ -17,10 +17,9 @@ void main() {
   late FLNPlatform platform;
 
   setUp(() {
-    binding =
-        TestDefaultBinaryMessengerBinding.instance
-          ..setUpFakeTimezone()
-          ..setUpFakeLocalNotifications();
+    binding = TestDefaultBinaryMessengerBinding.instance
+      ..setUpFakeTimezone()
+      ..setUpFakeLocalNotifications();
     debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
     IOSFlutterLocalNotificationsPlugin.registerWith();
     initializeTimeZones();
