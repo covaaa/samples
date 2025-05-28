@@ -17,8 +17,9 @@ String _$readInfoHash() => r'3ceef0c552eae5ef4aa9b6f9a22e8cdfae35e7d2';
 final readInfoProvider = AutoDisposeFutureProvider<PackageInfo>.internal(
   readInfo,
   name: r'readInfoProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$readInfoHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$readInfoHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

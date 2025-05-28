@@ -17,8 +17,9 @@ String _$infoServiceHash() => r'b150baea6fdf49360a879c45369951df37899a19';
 final infoServiceProvider = AutoDisposeProvider<InfoService>.internal(
   infoService,
   name: r'infoServiceProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$infoServiceHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$infoServiceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
